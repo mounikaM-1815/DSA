@@ -1,0 +1,62 @@
+🧩 Problem Description
+
+### Problem 1: Left Rotate an Array by One Position
+
+Given an array of integers, perform a **left rotation by one position**.  
+In a left rotation, each element of the array shifts one position to the **left**, and the **first element moves to the end** of the array.
+
+#### Example:
+- Input: `[1, 2, 3, 4, 5]`  
+- Output: `[2, 3, 4, 5, 1]`
+
+---
+
+### Problem 2: Right Rotate an Array by One Position
+
+Given an array of integers, perform a **right rotation by one position**.  
+In a right rotation, each element of the array shifts one position to the **right**, and the **last element moves to the beginning** of the array.
+
+#### Example:
+- Input: `[1, 2, 3, 4, 5]`  
+- Output: `[5, 1, 2, 3, 4]`
+
+---
+
+## 💡 Approach
+
+### Left Rotation:
+1. Store the first element in a temporary variable `temp`.
+2. Shift all elements one step left.
+3. Assign `temp` to the last position.
+
+### Right Rotation:
+1. Store the last element in a temporary variable `temp`.
+2. Shift all elements one step right.
+3. Assign `temp` to the first position.
+
+---
+
+## 🧠 Code Implementation
+
+```python
+def lrotate1(nums):
+    n = len(nums)
+    temp = nums[0]                # Step 1: Store first element
+    for i in range(n - 1):        # Step 2: Shift elements left
+        nums[i] = nums[i + 1]
+    nums[n - 1] = temp            # Step 3: Move temp to last
+    return nums
+
+
+def rrotate1(nums):
+    n = len(nums)
+    temp = nums[-1]               # Step 1: Store last element
+    for i in range(n - 1, 0, -1): # Step 2: Shift elements right
+        nums[i] = nums[i - 1]
+    nums[0] = temp                # Step 3: Move temp to first
+    return nums
+
+
+# Example Runs
+print(lrotate1([1, 2, 3, 4, 5]))  # Output: [2, 3, 4, 5, 1]
+print(rrotate1([1, 2, 3, 4, 5]))  # Output: [5, 1, 2, 3, 4]
