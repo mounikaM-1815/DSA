@@ -387,4 +387,68 @@ For `nums = [3, 4, 6, 5, 2, 9]`:
 
 ---
 
+🧩 Problem Description
+
+You are given an array of integers nums.
+Your task is to find the index of the smallest element in the array.
+If multiple elements share the same smallest value, return the first occurrence (smallest index).
+🧪 Sample Test Case
+Example 1
+
+Input:
+
+nums = [4, 1, 2, 9]
+
+
+Output:
+
+1
+⚙️ Approach Explanation
+Method 1: Brute Force (solve1)
+def solve1(nums):
+    n = len(nums)
+    ans = -1
+    for i in range(n):
+        flag = False
+        for j in range(n):
+            if nums[i] <= nums[j]:
+                continue
+            else:
+                flag = True
+        if flag == False:
+            ans = i
+            break
+    return ans
+
+🔍 Logic:
+
+For each element nums[i], compare it with every other element nums[j].
+
+If a smaller element exists, mark flag = True.
+
+If no smaller element is found (flag == False), that means nums[i] is the smallest.
+
+Return its index i.
+
+🧾 Step-by-step Trace:
+
+For nums = [4, 1, 2, 9]:
+
+i	nums[i]	Comparison Result	flag	ans
+0	4	Smaller element found (1 < 4)	True	-
+1	1	No smaller element found	False	1
+
+✅ Output = 1
+
+⏱️ Time Complexity:
+
+Outer loop → O(n)
+
+Inner loop → O(n)
+
+Total = O(n²)
+
+💾 Space Complexity:
+
+Only a few variables → O(1)
 
